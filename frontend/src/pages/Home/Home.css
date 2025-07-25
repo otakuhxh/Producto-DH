@@ -1,0 +1,110 @@
+/* Tus estilos existentes */
+.recommendations h2 {
+  color: #77242a;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  text-align: center;
+  position: relative;
+}
+
+.recommendations h2::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #e3b155;
+  margin: 10px auto 0;
+}
+
+.recommendations:hover h2::after {
+  width: 120px;
+  transition: width 0.3s ease;
+}
+
+.recommendations {
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(250px, auto);
+  gap: 1.5rem;
+  /*max-height: calc(5 * (250px + 1.5rem));*/
+  /*overflow: hidden;*/
+  margin-bottom: 2rem;
+}
+
+/* Nuevos estilos de paginación */
+.pagination-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.pagination-info {
+  color: #77242a;
+  font-weight: 500;
+}
+
+.pagination-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pagination-button, .page-number {
+  padding: 0.5rem 0.8rem;
+  border: 1px solid #e3b155;
+  background-color: transparent;
+  color: #77242a;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s;
+  min-width: 36px;
+  text-align: center;
+}
+
+.pagination-button:hover:not(:disabled), 
+.page-number:hover:not(.active) {
+  background-color: rgba(227, 177, 85, 0.1);
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: #ccc;
+}
+
+.page-number.active {
+  background-color: #e3b155;
+  color: white;
+  border-color: #e3b155;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  color: #77242a;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+    max-height: none;
+  }
+  
+  .pagination-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .pagination-button, .page-number {
+    padding: 0.4rem 0.7rem;
+    font-size: 0.9rem;
+  }
+}

@@ -1,0 +1,44 @@
+:root {
+  --primary-color: #77242a;
+  --secondary-color: #e3b155;
+  --background-color: #f8f8f8;
+  --text-color: #333;
+  --light-text: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding-top: 80px; /* Para el header fijo */
+}
+
+.main-content {
+  min-height: calc(100vh - 160px); /* Altura total menos header y footer */
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.error-message {
+  color: red;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+}
