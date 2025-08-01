@@ -17,6 +17,7 @@ const ProductDetail = () => {
       try {
         const response = await api.get(`/products/${id}`);
         setProduct(response.data);
+        console.log(response.data)
       } catch (err) {
         setError('Error al cargar el producto');
         console.error('Error fetching product:', err);

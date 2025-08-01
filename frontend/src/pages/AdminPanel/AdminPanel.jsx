@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import {Link, useNavigate, useParams } from 'react-router-dom';
 import api from '../../services/api';
 import './AdminPanel.css';
 
 const AdminPanel = () => {
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -54,9 +55,15 @@ const AdminPanel = () => {
     <div className="admin-panel">
       <h1>Panel de Administración</h1>
       <nav className="admin-menu">
-        <Link to="/admin/add-product" className="admin-link">Agregar Producto</Link>
-        <Link to="/admin" className="admin-link active">Lista de Productos</Link>
+        <Link to="/admin" className="admin-link active">Productos</Link>
+        <Link to="/admin/features" className="admin-link">Caracteristicas</Link>
+        <Link to="/admin/categories" className="admin-link">Categorias</Link>
+        <Link to="/admin/users" className="admin-link">Usuarios</Link>
       </nav>
+
+      <Link to="/admin/add-product" className="admin-link">+ Producto</Link>
+      <br></br>
+      <br></br>
       
       <div className="product-list">
         <table>
@@ -73,6 +80,12 @@ const AdminPanel = () => {
                 <td>{product.id}</td>
                 <td>{product.name}</td>
                 <td>
+                   <button 
+                    onClick={() => navigate(`/admin/edit-product/products/${product.id}`)}
+                    className="delete-btn"
+                  >
+                    Modificar
+                  </button>
                   <button 
                     onClick={() => handleDelete(product.id)}
                     className="delete-btn"
