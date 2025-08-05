@@ -133,6 +133,32 @@ const ProductDetail = () => {
             <h2>Descripción</h2>
             <p>{product.description || "No hay descripción disponible"}</p>
           </div>
+
+ <div className="product-description">
+  <h2>Características</h2>
+  {product.features.length > 0 ? (
+    <ul>
+      {product.features.map((feature, index) => (
+        <li key={index} style={{ display: 'flex', alignItems: 'center', marginBottom: '8px' }}>
+          {/* Icono (imagen o emoji) */}
+          {feature.icon.startsWith('http') ? (
+            <img
+              src={feature.icon}
+              alt={feature.name}
+              style={{ width: '24px', height: '24px', marginRight: '8px' }}
+            />
+          ) : (
+            <span style={{ marginRight: '8px', fontSize: '20px' }}>{feature.icon}</span>
+          )}
+          {/* Nombre de la característica */}
+          <span>{feature.name}</span>
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p>No hay características disponibles</p>
+  )}
+</div>
           
           <div className="product-meta">
             <span className="location">📍 {product.city || "Ubicación no especificada"}</span>

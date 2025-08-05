@@ -141,8 +141,8 @@ const EditProduct = () => {
         city: product.city,
         rating: Number(product.rating),
         imageUrls: product.imageUrls,
-        features: product.features.map(featureObj => ({ id: featureObj.id }))
-        //features: product.features.map(id => ({ id })) // Nuevo: enviar características
+        //features: product.features.map(featureObj => ({ id: featureObj.id }))
+        features: product.features.map(id => ({ id })) // Nuevo: enviar características
       };
       
       const productBlob = new Blob([JSON.stringify(productData)], {

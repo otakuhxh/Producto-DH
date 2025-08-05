@@ -116,18 +116,18 @@ const AddProduct = () => {
         category: product.category,
         city: product.city,
         rating: product.rating,
-        //features: product.features.map(id => ({ id }))
+        features: product.features.map(id => ({ id }))
       };
       
       formData.append('product', new Blob([JSON.stringify(productData)], {
         type: 'application/json'
       }));
-      
+      /*
        // Agregar features por separado si es necesario
       product.features.forEach(featureId => {
       formData.append('features', featureId.toString());
     });
-    
+    */
       selectedFiles.forEach(file => {
         formData.append('images', file);
       });

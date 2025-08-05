@@ -26,7 +26,7 @@ const AdminFeatures = () => {
   const handleDelete = async (featureId) => {
     if (window.confirm('¿Estás seguro de que deseas eliminar esta característica?')) {
       try {
-        await api.delete(`/api/features/${featureId}`);
+        await api.delete(`/features/${featureId}`);
         setFeatures(features.filter(f => f.id !== featureId));
         alert('Característica eliminada exitosamente');
       } catch (error) {
